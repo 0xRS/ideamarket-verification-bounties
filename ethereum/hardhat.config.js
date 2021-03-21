@@ -18,5 +18,15 @@ task("accounts", "Prints the list of accounts", async () => {
  */
 module.exports = {
   solidity: "0.7.3",
+  networks: {
+      kovan: {
+          url: `https://kovan.infura.io/v3/`,
+          accounts: {
+            mnemonic: ""
+          }
+      }
+  },
+  mocha: {
+    timeout: 600000
+  },
 };
-
