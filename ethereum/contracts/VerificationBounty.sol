@@ -25,7 +25,7 @@ contract VerificationBounty {
     }
 
     struct Bounty {
-        bool hasVerified;
+        bool hasClaimed;
         uint256 totalAmount;
         mapping (address => Donation) donors;
     }
@@ -40,7 +40,8 @@ contract VerificationBounty {
 
 
     function donate(address token, uint256 amount) external {
-        require(bounties[token].hasVerified==false, "Account already verified");
+        require(IdeaTokenExchange(_ideaTokenExchange).getTokenOwner(token) == address(0), "The token owner has already verified");
+        require(bounties[token].hasClaimed==false, "Account has already claimed");
         require(bounties[token].donors[msg.sender].amount==0, "You have already donated");
         IERC20(_donationCurrency).transferFrom(msg.sender, address(this), amount);
         Donation memory donation;
@@ -65,10 +66,9 @@ contract VerificationBounty {
     function claimBounty(address token) external {
         require(IdeaTokenExchange(_ideaTokenExchange).getTokenOwner(token) == msg.sender, "Only the token owner can claim the bounty");
         Bounty storage bounty = bounties[token];
-        require(bounty.hasVerified == false, "Already verified and claimed");
+        require(bounty.hasClaimed == false, "Already claimed");
         uint256 totalAmount = bounty.totalAmount;
-        bounty.hasVerified = true;
-        bounty.totalAmount = 0;
+        bounty.hasClaimed = true;
         IERC20(_donationCurrency).transfer(msg.sender, totalAmount);
     }
 
