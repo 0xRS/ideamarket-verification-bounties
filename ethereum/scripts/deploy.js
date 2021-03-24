@@ -14,7 +14,9 @@ async function main() {
     const vb = await VerificationBounty.deploy(30*24*60*60, dai.address, ite.address);
     await vb.deployed();
 
-    
+    console.log(dai.address);
+    console.log(ite.address);
+    console.log(vb.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

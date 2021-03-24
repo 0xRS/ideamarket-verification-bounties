@@ -12,18 +12,16 @@ task("accounts", "Prints the list of accounts", async () => {
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
-
+const RINKEBY_PRIVATE_KEY = "";
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
   solidity: "0.7.3",
   networks: {
-      kovan: {
-          url: `https://kovan.infura.io/v3/`,
-          accounts: {
-            mnemonic: ""
-          }
+      rinkeby: {
+          url: `https://rinkeby.infura.io/v3/`,
+          accounts: [`0x${RINKEBY_PRIVATE_KEY}`]
       }
   },
   mocha: {

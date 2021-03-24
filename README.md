@@ -1,9 +1,9 @@
 # ideamarket-verification-bounties
 
-### Kovan Deployments
+### Rinkeby Deployments
 
 ```
-DAIMock: 0xe2d296c4e3a1efc3b12e928f95fc46eb9e01697a
-IdeaTokenExchangeMock: 0xc2ef4a4cc1fe1d25b79d9d1ba154fb64d4e56d8d
-VerificationBounty: 0xafc9325227271b549b6eae2e73fd28dbeb53b4eb
+DAIMock: 0x2501eaafcA59C4902A8C85A07AcBae096879F852
+IdeaTokenExchangeMock: 0xF65682BF45d3645004518199519FD9D0d3A1Db0A
+VerificationBounty: 0xF2A74bf7Cf47F7eE625aff63798eF3B0536f6087
 ```
